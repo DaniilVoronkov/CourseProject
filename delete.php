@@ -1,19 +1,21 @@
 <?php
-try{
-ob_start();
-$playerId = filter_input(INPUT_GET, 'playerId');
-require("databaseConnection.php");
 
+    ob_start();
+    //getting the player id
+    $playerId = filter_input(INPUT_GET, 'playerId');
+    //connecting database
+    require_once("databaseConnection.php");
 
-$deleteQuery = "DELETE FROM playersstats WHERE player_id = :player_id;";
-$deleteStatement = $playerStatsDatabase->prepare($deleteQuery);
-$deleteStatement->bindParam(':player_id', $playerId);
-$deleteStatement->execute();
-$deleteStatement->closeCursor();
+    //query that will delete the player from database based on the player id
+    $deleteQuery = "DELETE FROM playersstats WHERE player_id = :player_id;";
+    //preparing the query
+    $deleteStatement = $playerStatsDatabase->prepare($deleteQuery);
+    //binding the id parameter
+    $deleteStatement->bindParam(':player_id', $playerId);
+    $deleteStatement->execute();
+    $deleteStatement->closeCursor();
+    //redirecting to the sucess message
+    header("Location: sucessMessage.php");
 
-header("Location: sucessMessage.php");
-} catch(PDOException $e) {
-    echo $e->getMessage();
-}
 ob_flush();
  ?>
