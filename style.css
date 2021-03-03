@@ -28,3 +28,7 @@ a:hover {
 #tableHeading {
     text-align: center;
 }
+
+#invisibleField {
+  display: none;
+}

@@ -23,7 +23,7 @@
      
      $playersInfo = $statement->fetchAll();
      echo "<div> <h3>Team players statistics: </h3></div>";
-     echo "<table class='table table-bordered table-hover table-dark'><thead><tr class='table-danger'><td>First Name</td> <td>Last name</td> <td>Country</td> <td> Age</td> <td> Goals</td> <td>Assists</td> <td> Player Number</td> <td>Matches played:</td> <td><a href='create.php'>Create record</td> </tr> </thead> <tbody>"; 
+     echo "<table class='table table-bordered table-hover table-dark'><thead><tr class='table-danger'><td>First Name</td> <td>Last name</td> <td>Country</td> <td> Age</td> <td> Goals</td> <td>Assists</td> <td> Player Number</td> <td>Matches played:</td> <td><a href='createRecord.php'>Create record</td> </tr> </thead> <tbody>"; 
 
     foreach($playersInfo as $record) {
         echo "<tr><td>" . $record['first_name'] . "</td><td>" . $record['last_name'] . "</td><td>" . $record['country'] . "</td><td>". $record['age'] . "</td><td>" . $record['goals'] . "</td><td>" . $record['assists'] . "</td><td>" . $record['player_number'] . "</td> <td>".$record['matches_played'].
