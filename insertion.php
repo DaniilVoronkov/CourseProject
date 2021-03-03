@@ -1,7 +1,7 @@
 <?php
     ob_start();
     //connecting the header
-    require("HeaderWithNavigationMenu.php");
+    require("../CourseProject/headerWithNavigationMenu.php");
     //connecting the database
     require_once("databaseConnection.php");
 

@@ -3,7 +3,7 @@
     //setting the page title
     $pageTitle = "Error page";
     //connecting header
-    require("HeaderWithNavigationMenu.php");
+    require("../CourseProject/headerWithNavigationMenu.php");
     //connecting database
     require_once("databaseConnection.php");
     //gather data for validation and storing it in appropriate variables

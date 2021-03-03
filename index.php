@@ -1,12 +1,10 @@
 <?php 
     //main page which contain basics information
-
+    
     //setting the title
     $pageTitle = "Main page";
     //connecting header
-    require_once("HeaderWithNavigationMenu.php");
-    //connecting the database
-    require("databaseConnection.php");
+    require_once("../CourseProject/headerWithNavigationMenu.php");
 ?>
 <main>
     <h2>Recent matches:</h2>
