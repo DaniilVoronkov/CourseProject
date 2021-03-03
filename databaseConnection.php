@@ -1,4 +1,5 @@
 <?php
+//connecting database
 try{
     $statsSource="mysql:host=localhost;dbname=players";
     $username="root";
