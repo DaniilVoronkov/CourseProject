@@ -70,8 +70,6 @@
     if($valid === true)
     {
         
-        /* $sql = "UPDATE songs SET first_name = :firstname, last_name = :lastname, genre = :genre, location = :location, email = :email, age = :age, favsong = :favsong WHERE user_id = :user_id;";  */
-    /*    $updateQuery = "UPDATE playersstats SET first_name = :firstName, last_name = :lastName, country = :newCountry, age = :age, goals = :goals, assists = :assists, player_number = :playerNewNumber, team = :newTeam, matches_played = :matchesAmount WHERE player_id = :uniqueId;"; */
         $updateQuery = "UPDATE playersstats SET first_name = :firstName, last_name = :lastName, country = :newCountry, age = :age, goals = :goals, assists = :assists WHERE player_id = :uniqueId;";
         $updateStatement = $playerStatsDatabase->prepare($updateQuery);
         
@@ -84,11 +82,7 @@
         $updateStatement->bindParam(':goals', $playerNewAmountOfGoals);
         
         $updateStatement->bindParam(':assists', $playerNewAmountOfAssists);
-        /*
-        $updateStatement->bindParam(':playerNewNumber', $playerNewNumber);
         
-        $updateStatement->bindParam(':newTeam', $playerTeam);
-        $updateStatement->bindParam(':matchesAmount', $playerNewNumber); */
         $updateStatement->bindParam(':uniqueId', $playerIdentifier);
         $updateStatement->execute();
         $queryContinued = "UPDATE playersstats SET player_number = :playerNewNumber, team = :newTeam, matches_played = :matchesAmount  WHERE player_id = :uniqueId;";
@@ -99,6 +93,7 @@
         $continuedStatement->bindParam(':uniqueId', $playerIdentifier);
         $continuedStatement->execute();
         $continuedStatement->closeCursor();
+       
         $url = "teamInfoView.php?team=".$playerTeam;
         
         header("Location:".$url);
@@ -108,8 +103,9 @@
     }
     else {
         
-        $backUrl = "edit.php?playerId=".$playerIdentifier;
-        echo "<a href=".$backUrl.">Go back </a>";
+            $backUrl = "edit.php?playerId=".$playerIdentifier;
+            echo "<a href=".$backUrl.">Go back </a>";
+        
        // header("Location:".$backUrl);
         ob_flush();
        
