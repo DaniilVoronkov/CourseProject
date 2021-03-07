@@ -4,7 +4,7 @@
     //setting the title
     $pageTitle = "Main page";
     //connecting header
-    require_once("../CourseProject/headerWithNavigationMenu.php");
+    require_once("headerWithNavigationMenu.php");
 ?>
 <main>
     <h2>Recent matches:</h2>

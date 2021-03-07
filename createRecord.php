@@ -2,7 +2,7 @@
     //setting the page title 
     $pageTitle = "Create record!";
     //connecting header
-    require_once("../CourseProject/headerWithNavigationMenu.php");
+    require_once("headerWithNavigationMenu.php");
 ?>
 
 <main>

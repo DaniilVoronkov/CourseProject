@@ -3,7 +3,7 @@
     //setting the page title
     $pageTitle = "Error page";
     //connecting header
-    require("../CourseProject/headerWithNavigationMenu.php");
+    require("headerWithNavigationMenu.php");
     //connecting database
     require_once("databaseConnection.php");
     //gather data for validation and storing it in appropriate variables
@@ -89,7 +89,9 @@
     if($valid === true)
     {
         //first part of the update query
-        $updateQuery = "UPDATE playersstats SET first_name = :firstName, last_name = :lastName, country = :newCountry, age = :age, goals = :goals, assists = :assists WHERE player_id = :uniqueId;";
+        $updateQuery = "UPDATE playersstats SET first_name = :firstName, last_name = :lastName, country = :newCountry, 
+        age = :age, goals = :goals, assists = :assists, player_number = :playerNewNumber,
+         team = :newTeam, matches_played = :matchesAmount WHERE player_id = :uniqueId;";
         $updateStatement = $playerStatsDatabase->prepare($updateQuery);
         //binding parameters for the first part of the query
         $updateStatement->bindParam(':firstName', $newName);
@@ -99,17 +101,13 @@
         $updateStatement->bindParam(':goals', $playerNewAmountOfGoals);
         $updateStatement->bindParam(':assists', $playerNewAmountOfAssists);
         $updateStatement->bindParam(':uniqueId', $playerIdentifier);
+        $updateStatement->bindParam(':playerNewNumber', $playerNewNumber);
+        $updateStatement->bindParam(':newTeam', $playerTeam);
+        $updateStatement->bindParam(':matchesAmount', $newMatchesAmount);
+        $updateStatement->bindParam(':uniqueId', $playerIdentifier);
         $updateStatement->execute();
-        //second part of the update query (temporary solution (somehow the whole query is not working properly))
-        $queryContinued = "UPDATE playersstats SET player_number = :playerNewNumber, team = :newTeam, matches_played = :matchesAmount  WHERE player_id = :uniqueId;";
-        $continuedStatement = $playerStatsDatabase->prepare($queryContinued);
-        $continuedStatement->bindParam(':playerNewNumber', $playerNewNumber);
-        $continuedStatement->bindParam(':newTeam', $playerTeam);
-        $continuedStatement->bindParam(':matchesAmount', $newMatchesAmount);
-        $continuedStatement->bindParam(':uniqueId', $playerIdentifier);
-        $continuedStatement->execute();
         //closing the database connection
-        $continuedStatement->closeCursor();
+        $updateStatement->closeCursor();
         //redirecting to the team information page (based on the current player team)
         $url = "teamInfoView.php?team=".$playerTeam;
         header("Location:".$url);

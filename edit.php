@@ -2,12 +2,12 @@
     //page that contains form, that allows us to edit information about player
 
     //getting the player id
-    $exactPlayerId; $exactPlayerId = filter_input(INPUT_GET, 'playerId');
+    $exactPlayerId = filter_input(INPUT_GET, 'playerId');
    
     //setting the page title
     $pageTitle = "Edit Player data";
     //connecting header
-    require_once("../CourseProject/headerWithNavigationMenu.php");
+    require_once("headerWithNavigationMenu.php");
     //connecting database
     require_once("databaseConnection.php");
     
