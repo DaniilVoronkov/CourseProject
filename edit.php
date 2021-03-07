@@ -2,7 +2,7 @@
     //page that contains form, that allows us to edit information about player
 
     //getting the player id
-    $exactPlayerId; $exactPlayerId = filter_input(INPUT_GET, 'playerId');
+    $exactPlayerId = filter_input(INPUT_GET, 'playerId');
    
     //setting the page title
     $pageTitle = "Edit Player data";

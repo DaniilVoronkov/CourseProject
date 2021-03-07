@@ -3,6 +3,7 @@
     $pageTitle = "Create record!";
     //connecting header
     require_once("../CourseProject/headerWithNavigationMenu.php");
+    require_once("databaseConnection.php");
 ?>
 
 <main>
@@ -82,5 +83,5 @@
 
 <?php 
     //connecting footer
-    require_once("footer.php");
+    require_once("../CourseProject/footer.php");
 ?>
