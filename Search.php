@@ -6,7 +6,7 @@
     require_once("databaseConnection.php");
     //connecting header and setting the new title
     $pageTitle = "Search result";
-    require_once("headerWithNavigationMenu.php");
+    require_once("../CourseProject/headerWithNavigationMenu.php");
     
     //getting the data from the search field
     $searchInput = filter_input(INPUT_GET, 'siteSearch');
@@ -39,12 +39,13 @@
             //printing all the data that were found
             $playersInfo = $statement->fetchAll();
             echo "<div> <h3>Team players statistics: </h3></div>";
-            echo "<table class='table table-bordered table-hover table-dark'><thead><tr class='table-danger'><td>First Name</td> <td>Last name</td> <td>Country</td> <td> Age</td> <td> Goals</td> <td>Assists</td> <td> Player Number</td> <td>Matches played:</td> <td>Position</td></tr> </thead> <tbody>"; 
+            echo "<table class='table table-bordered table-hover table-dark'><thead><tr class='table-danger'><td>First Name</td> <td>Last name</td> <td>Country</td> <td> Age</td> <td> Goals</td> <td>Assists</td> <td> Player Number</td> <td>Matches played:</td> <td>Position</td><td>Team:</td></tr> </thead> <tbody>"; 
             foreach($playersInfo as $record) {
                 echo "<tr><td>" . $record['first_name'] . "</td><td>" . $record['last_name'] . "</td><td>" . $record['country'] . "</td><td>". $record['age'] . "</td><td>" . $record['goals'] . "</td><td>" . $record['assists'] . "</td><td>" . $record['player_number'] . "</td> <td>".$record['matches_played']."</td><td>".$record['position'].
-                "</td>";
+                "</td><td>".$record['team']."</td>";
             }
             echo "</tbody></table>";
+            $statement->closeCursor();
         }
         //if the search did not return any result - print the appropriate message
         else {
@@ -52,6 +53,6 @@
         }
     }
     //connecting footer
-    require_once("footer.php");
+    require_once("../CourseProject/footer.php");
     ob_flush();
 ?>

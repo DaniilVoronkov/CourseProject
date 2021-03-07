@@ -4,6 +4,7 @@
     //getting the player id
     $playerId = filter_input(INPUT_GET, 'playerId');
     //connecting database
+    require_once("../CourseProject/headerWithNavigationMenu.php");
     require_once("databaseConnection.php");
 
     //query that will delete the player from database based on the player id
@@ -16,6 +17,7 @@
     $deleteStatement->closeCursor();
     //redirecting to the sucess message
     header("Location: sucessMessage.php");
+    require_once("../CourseProject/footer.php");
 
-ob_flush();
+    ob_flush();
  ?>

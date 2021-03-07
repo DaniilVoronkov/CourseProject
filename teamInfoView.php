@@ -6,7 +6,7 @@
      //setting the page title
      $pageTitle = $teamName;
      //connecting the header
-     require_once("headerWithNavigationMenu.php");
+     require_once("../CourseProject/headerWithNavigationMenu.php");
      //connecting the database
      require_once("databaseConnection.php");
      

@@ -7,7 +7,7 @@
     //setting the page title
     $pageTitle = "Edit Player data";
     //connecting header
-    require_once("headerWithNavigationMenu.php");
+    require_once("../CourseProject/headerWithNavigationMenu.php");
     //connecting database
     require_once("databaseConnection.php");
     

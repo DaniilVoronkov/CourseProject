@@ -16,7 +16,7 @@
         <header>
             <div class="d-flex justify-content-end">
                 
-                    <form action="search.php" class="d-flex justify-content-end">
+                    <form action="../CourseProject/Search.php" class="d-flex justify-content-end">
                         <div id="searchNameField" class="form-group">
                             <label for="siteSearch">Search:</label>
                             <input class="form-control" type="search" id="siteSearch" name="siteSearch">
