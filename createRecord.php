@@ -74,12 +74,27 @@
                 <option value="F">F</option>
             </select>
         </div>        
+
+        <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
         <!-- submit button -->
         <div class="d-flex justify-content-center">
             <input type="submit" value="Create!" name="submit" class="btn btn-outline-danger">
         </div>
+        <!-- including captcha configurtation (where the public and secret key were defined) -->
+        <?php include_once('configuratingCaptcha.php') ?>
+        <!-- captcha script -->
+        <script src="https://www.google.com/recaptcha/api.js?render=<?= SITEKEY ?>"></script>
+        <script>
+            grecaptcha.ready(() => {
+                grecaptcha.execute("<?= SITEKEY ?>", { action: "Create" })
+                .then(token => document.querySelector("#recaptchaResponse").value = token)
+                .catch(error => console.error(error));
+            });
+        </script>
     </form>
 </main>
+
+
 
 <?php 
     //connecting footer
