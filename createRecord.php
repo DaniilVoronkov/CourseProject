@@ -74,10 +74,15 @@
                 <option value="F">F</option>
             </select>
         </div>        
+
+        <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
         <!-- submit button -->
         <div class="d-flex justify-content-center">
             <input type="submit" value="Create!" name="submit" class="btn btn-outline-danger">
         </div>
+        <!-- including captcha configurtation (where the public and secret key were defined) -->
+        <?php include_once('configuratingCaptcha.php') ?>
+        
     </form>
 </main>
 

@@ -33,3 +33,13 @@ a:hover {
 #searchNameField {
   text-align:center;
 }
+
+#errorMessage {
+  background-color: red;
+  font-family: 'Karantina', cursive;
+  font-size: 30px;
+}
+
+.errorMessage {
+  color:red;
+}
