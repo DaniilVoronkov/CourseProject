@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +16,28 @@
     <!-- navigation menu (will be same on every page) -->
     <div class="container p-3 mb-2 bg-dark text-white">
         <header>
+            <div class="d-flex justify-content-start">
+            <?php
+                        session_start();
+                        if($_SESSION['sucess'] === true) {
+                            
+                            echo "<a href='../CourseProject/Logout.php'>Logout</a>";
+                            echo "<div class='container'>User #".$_SESSION['user']['id']." ".$_SESSION['user']['email']."</div>";
+                        }
+                        else 
+                        {
+                            
+                            echo "<div class='container'>
+                                    <a href='../CourseProject/LogIn.php'>Log in</a>
+                                    <a href='../CourseProject/UserRegister.php'>Register</a>
+                                  </div>";
+                           
+                        }
+                        
+                    ?>
+            </div>
             <div class="d-flex justify-content-end">
-                
+                    
                     <form action="../CourseProject/Search.php" class="d-flex justify-content-end">
                         <div id="searchNameField" class="form-group">
                             <label for="siteSearch">Search:</label>

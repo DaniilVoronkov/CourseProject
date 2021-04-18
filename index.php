@@ -1,13 +1,19 @@
 <?php 
+    
+    
     //main page which contain basics information
     
     //setting the title
     $pageTitle = "Main page";
     //connecting header
     require_once("../CourseProject/headerWithNavigationMenu.php");
+    require_once("../CourseProject/unsettingTemporaryVariables.php");
+ 
+    
 ?>
 <main>
     <h2>Recent matches:</h2>
+    <?php print_r($_SESSION); ?>
     <!-- recent matches section (now contains one match, later more matches will be added) -->
     <div class="d-flex justify-content-center">
         <!-- first team logo -->
@@ -24,4 +30,5 @@
 <?php 
     //connecting footer 
     require("footer.php"); 
+    
 ?>

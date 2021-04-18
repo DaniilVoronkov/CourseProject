@@ -20,6 +20,7 @@
     $statement ->execute();
     //storing the result in the variable (we will use it later in the form)
     $result = $statement->fetch(PDO::FETCH_ASSOC);
+    $statement->closeCursor();
 ?>
 
 <main>
