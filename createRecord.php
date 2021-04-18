@@ -82,19 +82,9 @@
         </div>
         <!-- including captcha configurtation (where the public and secret key were defined) -->
         <?php include_once('configuratingCaptcha.php') ?>
-        <!-- captcha script -->
-        <script src="https://www.google.com/recaptcha/api.js?render=<?= SITEKEY ?>"></script>
-        <script>
-            grecaptcha.ready(() => {
-                grecaptcha.execute("<?= SITEKEY ?>", { action: "Create" })
-                .then(token => document.querySelector("#recaptchaResponse").value = token)
-                .catch(error => console.error(error));
-            });
-        </script>
+        
     </form>
 </main>
-
-
 
 <?php 
     //connecting footer

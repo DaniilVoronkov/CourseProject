@@ -13,7 +13,6 @@
 ?>
 <main>
     <h2>Recent matches:</h2>
-    <?php print_r($_SESSION); ?>
     <!-- recent matches section (now contains one match, later more matches will be added) -->
     <div class="d-flex justify-content-center">
         <!-- first team logo -->

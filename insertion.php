@@ -21,16 +21,16 @@
     $insertQuery = "INSERT INTO playersstats (first_name,last_name,country,age,goals,assists,player_number,team,matches_played,position) VALUES (:fn,:ln,:ct,:age,:gl,:assists,:pn,:team,:mp,:pos);";
     $insertStatement = $playerStatsDatabase->prepare($insertQuery);
     //binding all parameters
-    $insertStatement->bindParam(':fn', $name);
-    $insertStatement->bindParam(':ln', $last_name);
-    $insertStatement->bindParam(':ct', $playerCountry);
+    $insertStatement->bindParam(':fn', $name, PDO::PARAM_STR);
+    $insertStatement->bindParam(':ln', $last_name, PDO::PARAM_STR);
+    $insertStatement->bindParam(':ct', $playerCountry, PDO::PARAM_STR);
     $insertStatement->bindParam(':age', $playerAge);
     $insertStatement->bindParam(':gl', $playeewAmountOfGoals);
     $insertStatement->bindParam(':assists', $playerAmountOfAssists);
     $insertStatement->bindParam(':pn', $playerNumber);
-    $insertStatement->bindParam(':team', $playerTeam);
+    $insertStatement->bindParam(':team', $playerTeam, PDO::PARAM_STR);
     $insertStatement->bindParam(':mp', $matchesAmount);
-    $insertStatement->bindParam(':pos', $position);
+    $insertStatement->bindParam(':pos', $position, PDO::PARAM_STR);
     $insertStatement->execute();
     //closing the database connection
     $insertStatement->closeCursor();

@@ -1,6 +1,6 @@
 <?php
      //page that shows the information about team and its current players
-     print_r($_SESSION); 
+     
      //getting the team name (based on that we will generate the info)
      $teamName = filter_input(INPUT_GET, 'team');
      //setting the page title
